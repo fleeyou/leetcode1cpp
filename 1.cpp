@@ -4,6 +4,7 @@
 	> Mail: fleeyou@outlook.com
 	> Created Time: Sat 07 Nov 2015 10:19:04 PM PST
     > Problem Name: Two Sum
+    > Difficulty: Medium
     > Description:
         Given an array of integers, find two numbers such that they add up to a specific target number.
 

@@ -4,6 +4,7 @@
 	> Mail: fleeyou@outlook.com
 	> Created Time: Sun 08 Nov 2015 01:42:23 AM PST
     > Problem Name: Add Two Numbers
+    > Difficulty: Medium
     > Description:
         You are given two linked lists representing two non-negative numbers. The digits are stored in 
         reverse order and each of their nodes contain a single digit. Add the two numbers and return it 
