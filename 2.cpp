@@ -6,8 +6,8 @@
     > Problem Name: Add Two Numbers
     > Difficulty: Medium
     > Description:
-        You are given two linked lists representing two non-negative numbers. The digits are stored in 
-        reverse order and each of their nodes contain a single digit. Add the two numbers and return it 
+        You are given two linked lists representing two non-negative numbers. The digits are stored in
+        reverse order and each of their nodes contain a single digit. Add the two numbers and return it
         as a linked list.
 
         Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -17,46 +17,54 @@
 #include<iostream>
 using namespace std;
 
-struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode(int x) : val(x), next(NULL) {}
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
 };
- 
-class Solution {
+
+class Solution
+{
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+    {
         ListNode head(-1);
         ListNode* prev = &head, * p1, * p2;
         int carry = 0, value;
-        for(p1=l1,p2=l2;p1||p2;p1=p1?p1->next:nullptr,p2=p2?p2->next:nullptr,prev=prev->next){
-            const int num1=p1?p1->val:0;
-            const int num2=p2?p2->val:0;
-            value = (num1+ num2 + carry)%10;
-            carry = (num1+num2+carry)/10;
+        for(p1 = l1, p2 = l2; p1 || p2; p1 = p1 ? p1->next : nullptr, p2 = p2 ? p2->next : nullptr, prev = prev->next)
+        {
+            const int num1 = p1 ? p1->val : 0;
+            const int num2 = p2 ? p2->val : 0;
+            value = (num1 + num2 + carry) % 10;
+            carry = (num1 + num2 + carry) / 10;
             prev->next = new ListNode(value);
         }
-        if(carry>0){
-            prev->next=new ListNode(carry);
+        if(carry > 0)
+        {
+            prev->next = new ListNode(carry);
         }
         return head.next;
     }
 };
 
-int main(){
+int main()
+{
     Solution sol = Solution();
-    ListNode l1(2),l11(4),l12(3),l2(5),l21(6),l22(4);
-    l1.next=&l11;
-    l11.next=&l12;
-    l2.next=&l21;
-    l21.next=&l22;
-    ListNode * result=sol.addTwoNumbers(&l1,&l2);
-    while(result){
-        cout<<result->val;
-        if(result->next){
-            cout<<"->";
+    ListNode l1(2), l11(4), l12(3), l2(5), l21(6), l22(4);
+    l1.next = &l11;
+    l11.next = &l12;
+    l2.next = &l21;
+    l21.next = &l22;
+    ListNode * result = sol.addTwoNumbers(&l1, &l2);
+    while(result)
+    {
+        cout << result->val;
+        if(result->next)
+        {
+            cout << "->";
         }
-        result=result->next;
+        result = result->next;
     }
-    cout<<endl;
+    cout << endl;
 }

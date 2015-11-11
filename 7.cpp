@@ -3,9 +3,9 @@
 	> Author: Alan
 	> Mail: fleeyou@outlook.com
 	> Created Time: Tue 10 Nov 2015 11:43:19 AM CST
-    > Problem Name: Reverse Integer 
+    > Problem Name: Reverse Integer
     > Difficulty: Easy
-    > Description: 
+    > Description:
         Reverse digits of an integer.
 
         Example1: x = 123, return 321
@@ -17,25 +17,30 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int reverse(int x) {
-        if(x==0){
+    int reverse(int x)
+    {
+        if(x == 0)
+        {
             return 0;
         }
-        int flag = x>0?1:-1;
+        int flag = x > 0 ? 1 : -1;
         long sum = 0;
         long tmp = abs((long)x);
-        while(tmp){
-            sum = sum*10+tmp%10;
-            tmp/=10;
+        while(tmp)
+        {
+            sum = sum * 10 + tmp % 10;
+            tmp /= 10;
         }
-        return (sum>INT_MAX)?0:sum*flag;
+        return (sum > INT_MAX) ? 0 : sum * flag;
     }
 };
 
-int main(){
+int main()
+{
     Solution sol = Solution();
     int num = 1234567;
-    cout<<"The reversed number is: "<<sol.reverse(num)<<endl;
+    cout << "The reversed number is: " << sol.reverse(num) << endl;
 }

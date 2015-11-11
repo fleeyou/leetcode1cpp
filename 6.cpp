@@ -6,7 +6,7 @@
     > Problem Name: ZigZag Conversion My Submissions Question
     > Difficulty: Easy
     > Description:
-        The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: 
+        The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
         (you may want to display this pattern in a fixed font for better legibility)
 
         P   A   H   N
@@ -25,30 +25,37 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    string convert(string s, int numRows) {
+    string convert(string s, int numRows)
+    {
         auto iter = s.begin();
         string res[numRows];
-        int gap = numRows-2;
-        while(iter!=s.end()){
-            for(int i = 0; i<numRows && iter!=s.end();i++){
-                res[i]+=*iter++;
+        int gap = numRows - 2;
+        while(iter != s.end())
+        {
+            for(int i = 0; i < numRows && iter != s.end(); i++)
+            {
+                res[i] += *iter++;
             }
-            for(int i = gap;i>0 && iter!=s.end();i--){
-                res[i]+=*iter++;
+            for(int i = gap; i > 0 && iter != s.end(); i--)
+            {
+                res[i] += *iter++;
             }
         }
         string result = "";
-        for(auto v:res){
+        for(auto v : res)
+        {
             result += v;
         }
         return result;
     }
 };
 
-int main(){
+int main()
+{
     Solution sol = Solution();
-    string str="PAYPALISHIRING";
-    cout<<"The zigzag format of the input string is: "<<sol.convert(str,3)<<endl;
+    string str = "PAYPALISHIRING";
+    cout << "The zigzag format of the input string is: " << sol.convert(str, 3) << endl;
 }

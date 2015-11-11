@@ -5,9 +5,9 @@
 	> Created Time: Sun 08 Nov 2015 04:07:44 AM PST
     > Problem Name: Longest Substring Without Repeating Characters
     > Difficulty: Medium
-    > Description: 
-        Given a string, find the length of the longest substring without repeating characters. For 
-        example, the longest substring without repeating letters for "abcabcbb" is "abc", which the 
+    > Description:
+        Given a string, find the length of the longest substring without repeating characters. For
+        example, the longest substring without repeating letters for "abcabcbb" is "abc", which the
         length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
 
         Subscribe to see which companies asked this question
@@ -18,10 +18,12 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int lengthOfLongestSubstring(string s) {
-        /* 
+    int lengthOfLongestSubstring(string s)
+    {
+        /*
         //Solution1: 140ms
         auto len=s.size();
         int i,j,maxx=0;
@@ -36,29 +38,30 @@ public:
         }
         return maxx;
         */
-        
-        vector<int> index(300,-1);
-        int len=s.size(),tmp=1,maxx=1;
-        if(len==0) 
+
+        vector<int> index(300, -1);
+        int len = s.size(), tmp = 1, maxx = 1;
+        if(len == 0)
             return 0;
-        index[s[0]]=0;
-        for(int i=1;i<len;i++)
+        index[s[0]] = 0;
+        for(int i = 1; i < len; i++)
         {
-            int lastApp=index[s[i]];
-            if(lastApp==-1) 
+            int lastApp = index[s[i]];
+            if(lastApp == -1)
                 tmp++;
-            else 
-                tmp=min(tmp+1,i-lastApp);
-            index[s[i]]=i;
-            maxx=max(maxx,tmp);
+            else
+                tmp = min(tmp + 1, i - lastApp);
+            index[s[i]] = i;
+            maxx = max(maxx, tmp);
         }
         return maxx;
-   }
+    }
 };
 
-int main(){
+int main()
+{
     string str("abcabcbb");
-    Solution sol=Solution();
-    int len=sol.lengthOfLongestSubstring(str);
-    cout<<"The max length of substring without repeating characters is: "<<len<<endl;
+    Solution sol = Solution();
+    int len = sol.lengthOfLongestSubstring(str);
+    cout << "The max length of substring without repeating characters is: " << len << endl;
 }
